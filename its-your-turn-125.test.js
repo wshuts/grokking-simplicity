@@ -10,3 +10,11 @@ test('reads the last element of an array', () => {
 test('drops the last element of an array', () => {
     expect(functions.drop_last([1, 2, 3, 4])).toStrictEqual([1, 2, 3]);
 });
+
+test('drops the last element of an array', () => {
+    expect(functions.pop([1, 2, 3, 4])).toStrictEqual(
+        {
+            last_element:4,
+            array:[1, 2, 3]
+        });
+});
