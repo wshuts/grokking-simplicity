@@ -8,5 +8,7 @@ function pop_example(){
 }
 
 function last_element(array){
-
+    return 0;
 }
+
+module.exports = last_element;
