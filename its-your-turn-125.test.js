@@ -18,3 +18,11 @@ test('drops the last element of an array', () => {
             array:[1, 2, 3]
         });
 });
+
+test('drops the last element of an array', () => {
+    expect(functions.pop_v2([9, 8, 7, 6])).toStrictEqual(
+        {
+            last_element:6,
+            array:[9, 8, 7]
+        });
+});

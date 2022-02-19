@@ -2,7 +2,8 @@ const functions = {
     pop_example: pop_example,
     last_element: last_element,
     drop_last: drop_last,
-    pop: pop
+    pop: pop,
+    pop_v2: pop_v2
 };
 
 function pop_example(){
@@ -28,6 +29,13 @@ function pop(array){
     return {
         last_element: last_element, 
         array: array_copy
+    };
+}
+
+function pop_v2(array){
+    return {
+        last_element: last_element(array),
+        array: drop_last(array)
     };
 }
 
