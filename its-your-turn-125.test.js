@@ -8,5 +8,5 @@ test('reads the last element of an array', () => {
 });
 
 test('drops the last element of an array', () => {
-    expect(functions.drop_last([1, 2, 3, 4])).toBe([1, 2, 3, 4]);
+    expect(functions.drop_last([1, 2, 3, 4])).toStrictEqual([1, 2, 3]);
 });
