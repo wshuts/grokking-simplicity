@@ -6,3 +6,10 @@ test('copy-on-write object key value creation', () => {
             price:37
         });
 });
+
+test('use objectSet in setPrice', () => {
+    expect(functions.setPrice({}, 99)).toStrictEqual(
+        {
+            price:99
+        });
+});
