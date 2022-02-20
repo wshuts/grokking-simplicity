@@ -13,3 +13,10 @@ test('use objectSet in setPrice', () => {
             price:99
         });
 });
+
+test('use objectSet in setQuantity', () => {
+    expect(functions.setQuantity({}, 14)).toStrictEqual(
+        {
+            quantity:14
+        });
+});
