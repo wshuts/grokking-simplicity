@@ -1,12 +1,19 @@
 const functions = {
     objectSet: objectSet,
     setPrice: setPrice,
-    setQuantity: setQuantity
+    setQuantity: setQuantity,
+    objectDelete: objectDelete
 };
 
 function objectSet(object, key, value) {
     var object_copy = Object.assign({}, object);
     object_copy[key] = value;
+    return object_copy;
+}
+
+function objectDelete(object, key) {
+    var object_copy = Object.assign({}, object);
+
     return object_copy;
 }
 

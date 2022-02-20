@@ -7,6 +7,12 @@ test('copy-on-write object key value creation', () => {
         });
 });
 
+test('copy-on-write object key value deletion', () => {
+    expect(functions.objectDelete({price:101}, 'price')).toStrictEqual(
+        {
+        });
+});
+
 test('use objectSet in setPrice', () => {
     expect(functions.setPrice({}, 99)).toStrictEqual(
         {
