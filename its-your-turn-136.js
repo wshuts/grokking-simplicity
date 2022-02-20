@@ -1,6 +1,7 @@
 const functions = {
     objectSet: objectSet,
-    setPrice: setPrice
+    setPrice: setPrice,
+    setQuantity: setQuantity
 };
 
 function objectSet(object, key, value) {
@@ -11,6 +12,10 @@ function objectSet(object, key, value) {
 
 function setPrice(item, new_price) {
     return functions.objectSet(item, 'price', new_price);
+}
+
+function setQuantity(item, new_quantity) {
+    return functions.objectSet(item, 'quantity', new_quantity);
 }
 
 module.exports = functions;
