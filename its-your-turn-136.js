@@ -28,7 +28,10 @@ function setQuantity(item, new_quantity) {
 
 function  setQuantityByName(cart, name, quantity) {
   var cart_copy = cart.slice();
-  
+  for(var i = 0; i < cart_copy.length; i++){
+    if(cart_copy[i].name === name)
+      cart_copy[i] = setQuantity(cart_copy[i], quantity);
+  }
   return cart_copy;
 }
 
