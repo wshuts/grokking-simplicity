@@ -13,7 +13,7 @@ function objectSet(object, key, value) {
 
 function objectDelete(object, key) {
     var object_copy = Object.assign({}, object);
-
+    delete object_copy[key];
     return object_copy;
 }
 
