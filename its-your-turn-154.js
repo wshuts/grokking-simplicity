@@ -1,3 +1,5 @@
+const cloneDeep = require('lodash.clonedeep');
+
 const functions = {
     payrollCalcSafe: payrollCalcSafe,
     subscribeSafe: subscribeSafe
@@ -12,10 +14,6 @@ function subscribe(userCallback){
   //add userCallback to the call stack
 }
 
-function deepCopy(array){
-  return [];
-}
-
 function payrollCalc(employees){
   return [];
 }
@@ -24,14 +22,14 @@ function processUser(user){
 }
 
 function payrollCalcSafe(employees){
-    var employees_copy = deepCopy(employees);
+    var employees_copy = cloneDeep(employees);
     var payrollChecks = payrollCalc(employees_copy);
-    return deepCopy(payrollChecks);
+    return cloneDeep(payrollChecks);
 }
 
 function subscribeSafe(){
     userChanges.subscribe(function(user){
-      var user_copy = deepCopy(user);
+      var user_copy = cloneDeep(payrollChecks);
       processUser(user_copy);
     });   
 }
