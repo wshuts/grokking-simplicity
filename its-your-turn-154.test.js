@@ -4,3 +4,6 @@ test('defensive-copy', () => {
     expect(functions.payrollCalcSafe([])).toStrictEqual([]);
 });
 
+test('defensive-copy for a registering a callback', () => {
+    expect(functions.subscribeSafe()).toStrictEqual();
+});
