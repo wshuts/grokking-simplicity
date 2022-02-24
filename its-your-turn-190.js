@@ -1,3 +1,5 @@
+const item = require('./item');
+
 const functions = {
   isInCart: isInCart,
   indexOfItem: indexOfItem,
@@ -19,13 +21,8 @@ function indexOfItem(cart, name) {
 function  setPriceByName(cart, name, price) {
   var cartCopy = cart.slice();
   var i = indexOfItem(cart, name);
-  if(i !== null) cartCopy[i] = setPrice(cartCopy[i], price);
+  if(i !== null) cartCopy[i] = item.setPrice(cartCopy[i], price);
   return cartCopy;
-}
-
-function setPrice(item, price) {
- item.price = price;
- return item; 
 }
 
 module.exports = functions;
