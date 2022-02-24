@@ -4,11 +4,7 @@ const functions = {
 };
 
 function isInCart(cart, name) {
-  for(var i = 0; i < cart.length; i++) {
-    if(cart[i].name === name)
-    return true;
-  }
-  return false;
+  return indexOfItem(cart, name) !== null;
 }
 
 function indexOfItem(cart, name) {
