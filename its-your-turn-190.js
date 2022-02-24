@@ -18,10 +18,8 @@ function indexOfItem(cart, name) {
 
 function  setPriceByName(cart, name, price) {
   var cartCopy = cart.slice();
-  for(var i = 0; i < cartCopy.length; i++) {
-    if(cartCopy[i].name === name)
-      cartCopy[i] = setPrice(cartCopy[i], price);
-  }
+  var i = indexOfItem(cart, name);
+  if(i !== null) cartCopy[i] = setPrice(cartCopy[i], price);
   return cartCopy;
 }
 
