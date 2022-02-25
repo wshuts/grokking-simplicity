@@ -10,6 +10,13 @@ function isInCart(cart, name) {
   return indexOfItem(cart, name) !== null;
 }
 
+function getItemByName(cart, name) {
+  var index = indexOfItem(cart, name);
+  if(index !== null)
+    return cart[index];
+  return null;
+}
+
 function indexOfItem(cart, name) {
   for(var i = 0; i < cart.length; i++) {
     if(cart[i].name === name)
@@ -20,8 +27,9 @@ function indexOfItem(cart, name) {
 
 function  setPriceByName(cart, name, price) {
   var index = indexOfItem(cart, name);
-  if(index !== null)
-    return arraySet(cart, index, item.setPrice(cart[index], price));
+  var named_item = getItemByName(cart, name);
+  if(named_item !== null)
+    return arraySet(cart, index, item.setPrice(named_item, price));
   return cart;
 }
 
