@@ -19,10 +19,12 @@ function indexOfItem(cart, name) {
 }
 
 function  setPriceByName(cart, name, price) {
-  var cartCopy = cart.slice();
-  var i = indexOfItem(cart, name);
-  if(i !== null) cartCopy[i] = item.setPrice(cartCopy[i], price);
-  return cartCopy;
+  var index = indexOfItem(cart, name);
+  if(index !== null){
+    var found_item = cart[index];
+    return arraySet(cart, index, item.setPrice(found_item, price));
+  }
+  return cart;
 }
 
 function arraySet(array, idx, value) {
