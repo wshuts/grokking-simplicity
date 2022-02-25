@@ -20,10 +20,8 @@ function indexOfItem(cart, name) {
 
 function  setPriceByName(cart, name, price) {
   var index = indexOfItem(cart, name);
-  if(index !== null){
-    var found_item = cart[index];
-    return arraySet(cart, index, item.setPrice(found_item, price));
-  }
+  if(index !== null)
+    return arraySet(cart, index, item.setPrice(cart[index], price));
   return cart;
 }
 
