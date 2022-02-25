@@ -25,4 +25,10 @@ function  setPriceByName(cart, name, price) {
   return cartCopy;
 }
 
+function arraySet(array, idx, value) {
+  var copy = array.slice();
+  copy[idx] = value;
+  return copy;
+}
+
 module.exports = functions;
