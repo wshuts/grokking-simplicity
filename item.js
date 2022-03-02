@@ -1,7 +1,8 @@
 const item = {
     setPrice: setPrice,
     setQuantity: setQuantity,
-    setQuantityByName: setQuantityByName
+    setQuantityByName: setQuantityByName,
+    objectSet: objectSet
 };
 
 function objectSet(object, key, value) {
