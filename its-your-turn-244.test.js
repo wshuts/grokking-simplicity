@@ -8,14 +8,14 @@ var item1 = {
 
 var item2 = {
   name: 'widget',
-  quantity: 99,
+  quantity: 100,
   size: 0
 };
 
 var item3 = {
   name: 'widget',
   quantity: 99,
-  size: 0
+  size: 1
 };
 
 var cart1 = {widget: item1};
