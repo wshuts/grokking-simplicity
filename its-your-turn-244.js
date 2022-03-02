@@ -25,12 +25,20 @@ function incrementSizeByName(cart, name) {
 }
 
 function incrementFieldByName(cart, name, field) {
+  validateItemField(field);
   var item = cart[name];
   var value = item[field];
   var newValue = value + 1;
   var newItem = itemLibrary.objectSet(item, field, newValue);
   var newCart = itemLibrary.objectSet(cart, name, newItem);
   return newCart;
+}
+
+var validItemFields = ['quantity', 'size'];
+
+function validateItemField(field) {
+  if(!validItemFields.includes(field))
+    throw "Not a valid item field: " + "'" + field + "'.";
 }
 
 module.exports = functions;

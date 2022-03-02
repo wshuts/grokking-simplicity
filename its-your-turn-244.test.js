@@ -24,6 +24,7 @@ var cart2 = {widget: item2};
 
 var cart3 = {widget: item3};
 
+var field = 'price';
 
 test('incrementQuantityByName', () => {
     expect(functions.incrementQuantityByName(cart1, 'widget')).toStrictEqual(cart2);
@@ -39,4 +40,10 @@ test('refactor: incrementQuantityByName', () => {
 
 test('refactor: incrementSizeByName', () => {
     expect(functions.incrementFieldByName(cart1, 'widget', 'size')).toStrictEqual(cart3);
+});
+
+test('check for valid item field', () => {
+    expect(() => {
+      functions.incrementFieldByName(cart1, 'widget', 'price')
+    }).toThrow("Not a valid item field: " + "'" + field + "'.");
 });
