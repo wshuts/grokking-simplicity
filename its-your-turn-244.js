@@ -2,7 +2,8 @@ const itemLibrary = require('./item');
 
 const functions = {
   incrementQuantityByName: incrementQuantityByName,
-  incrementSizeByName: incrementSizeByName
+  incrementSizeByName: incrementSizeByName,
+  incrementFieldByName: incrementFieldByName
 };
 
 function incrementQuantityByName(cart, name) {
@@ -19,6 +20,15 @@ function incrementSizeByName(cart, name) {
   var size = item['size'];
   var newSize = size + 1;
   var newItem = itemLibrary.objectSet(item, 'size', newSize);
+  var newCart = itemLibrary.objectSet(cart, name, newItem);
+  return newCart;
+}
+
+function incrementFieldByName(cart, name, field) {
+  var item = cart[name];
+  var value = item[field];
+  var newValue = value + 1;
+  var newItem = itemLibrary.objectSet(item, field, newValue);
   var newCart = itemLibrary.objectSet(cart, name, newItem);
   return newCart;
 }

@@ -32,3 +32,11 @@ test('incrementQuantityByName', () => {
 test('incrementSizeByName', () => {
     expect(functions.incrementSizeByName(cart1, 'widget')).toStrictEqual(cart3);
 });
+
+test('refactor: incrementQuantityByName', () => {
+    expect(functions.incrementFieldByName(cart1, 'widget', 'quantity')).toStrictEqual(cart2);
+});
+
+test('refactor: incrementSizeByName', () => {
+    expect(functions.incrementFieldByName(cart1, 'widget', 'size')).toStrictEqual(cart3);
+});
