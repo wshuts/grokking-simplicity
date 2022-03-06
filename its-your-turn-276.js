@@ -3,15 +3,10 @@ const functions = {
 };
 
 function tryCatch(tryProcedure, catchProcedure) {
-  return withTryCatch(tryProcedure, catchProcedure);  
-}
-
-function withTryCatch(tryProcedure, catchProcedure) {
   try {
-    tryProcedure();
-  }
-  catch {
-    catchProcedure();
+    return tryProcedure();
+  } catch(error) {
+    return catchProcedure(error);
   }  
 }
 
