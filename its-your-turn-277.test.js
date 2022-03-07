@@ -4,11 +4,13 @@ test('log empty array', () => {
     expect(functions.logEmptyArray([]));
 });
 
-var item = {name: 'shoes', price: 99};
-var cartWithShoes = {shoes: item};
+const itemBefore = {name: 'shoes', price: 99};
+const itemAfter = {name: 'shoes', price: 0};
 
+const cartWithShoes = {shoes: itemBefore};
+const cartWithFreeShoes = {shoes: itemAfter};
 
 test('give free shoes', () => {
     expect(functions.giveShoesForFree(cartWithShoes))
-    .toStrictEqual(cartWithShoes);
+    .toStrictEqual(cartWithFreeShoes);
 });

@@ -6,14 +6,14 @@ const functions = {
 };
 
 function logEmptyArray(array) {
-  when(array.length === 0, function() {
+  return when(array.length === 0, function() {
     return 'Array is empty';
   });
 }
 
 function giveShoesForFree(cart) {
-  when(hasItem(cart, 'shoes') , function() {
-    return setPriceByName(cart, 'shoes', 0);
+  return when(hasItem(cart, 'shoes') , function() {
+     return setPriceByName(cart, 'shoes', 0);
   });
 }
 
