@@ -2,7 +2,8 @@ const objectLibrary = require('./objectLibrary');
 
 const functions = {
   logEmptyArray: logEmptyArray,
-  giveShoesForFree: giveShoesForFree
+  giveShoesForFree: giveShoesForFree,
+  giveShoesForFreeImproved: giveShoesForFreeImproved
 };
 
 function logEmptyArray(array) {
@@ -20,6 +21,21 @@ function giveShoesForFree(cart) {
 function when(predicate, consequent) {
   if(predicate)
     return consequent();
+}
+
+function giveShoesForFreeImproved(cart) {
+  return IF(hasItem(cart, "shoes"), function() {
+    return setPriceByName(cart, "shoes", 0);
+  }, function() {
+    return cart;
+  }); 
+}
+
+function IF(predicate, consequent, alternative) {
+  if(predicate)
+    return consequent();
+  else
+    return alternative();
 }
 
 function hasItem(cart, itemKey) {
