@@ -1,6 +1,8 @@
 const functions = require('./its-your-turn-285');
 
-test('Wrapper to ignore errors', () => {
-  expect()
-  .toStrictEqual();
+var procedureWithErrorMock = jest.fn(functions.procedureWithError);
+
+test('throws error', () => {
+  expect(() => procedureWithErrorMock(0, 2, 3))
+  .toThrow('Error!');
 });
