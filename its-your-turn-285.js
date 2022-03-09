@@ -9,11 +9,13 @@ function procedureWithError(a, b, c) {
 }
 
 function wrapWithIgnoreErrors(procedureThrowingIgnorableError) {
-  try {
-    return procedureThrowingIgnorableError(arg1, arg2, arg3);
-  }
-  catch(error) {
-    return null;
+  return function(arg1, arg2, arg3) {
+    try {
+      return procedureThrowingIgnorableError(arg1, arg2, arg3);
+    }
+    catch(error) {
+      return null;
+    }
   }
 }
 
