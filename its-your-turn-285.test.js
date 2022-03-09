@@ -31,3 +31,27 @@ test('number of args > 2', () => {
   expect(numOfArgsTestSequence())
   .toBeGreaterThan(2);
 });
+
+var ignoresErrorTestSequence = () => {
+  
+  var procedureWithIgnoredErrorMock = jest.fn(functions.wrapWithIgnoreErrors(functions.procedureWithError));
+  
+  procedureWithIgnoredErrorMock(0, 2, 3);
+  
+  var mockState = procedureWithIgnoredErrorMock.mock;
+  var mockCalls = mockState.calls;
+  var firstMockCall = mockCalls[0];
+  var numOfArgsForFirstMockCall = firstMockCall.length;
+  return numOfArgsForFirstMockCall;
+  
+};
+
+test('ignores error', () => {
+  expect(ignoresErrorTestSequence)
+  .not.toThrow('Error!');
+});
+
+test('number of args > 2', () => {
+  expect(ignoresErrorTestSequence())
+  .toBeGreaterThan(2);
+});
