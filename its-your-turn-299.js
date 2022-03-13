@@ -1,16 +1,14 @@
-const objectLibrary = require('./objectLibrary');
-
 const functions = {
   createAddressFrom: createAddressFrom,
   map: map
 };
 
 function createAddressFrom(customer) {
-  var address = {};
-  address = objectLibrary.objectSet(address, 'firstName', customer.firstName);
-  address = objectLibrary.objectSet(address, 'lastName', customer.lastName);
-  address = objectLibrary.objectSet(address, 'address', customer.address);
-  return address;
+  return {
+    firstName: customer.firstName,
+    lastName: customer.lastName,
+    address: customer.address
+  };
 }
 
 function map(array, transform) {
