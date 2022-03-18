@@ -27,7 +27,7 @@ test('filter given true', () => {
     .toStrictEqual(numbers);
 });
 
-test('filter given true', () => {
+test('filter given false', () => {
     expect(arrayLibrary.filter(numbers, _x => false))
     .toStrictEqual([]);
 });
