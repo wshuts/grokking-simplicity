@@ -2,7 +2,9 @@ const arrayLibrary = {
   forEach: forEach,
   map: map,
   filter: filter,
-  reduce: reduce
+  reduce: reduce,
+  mapWithReduce: mapWithReduce,
+  filterWithReduce: filterWithReduce
 };
 
 function forEach(array, procedure) {
@@ -21,11 +23,11 @@ function map(array, transform) {
 }
 
 function filter(array, predicate) {
-  var arrayCopy = [];
+  var newArray = [];
   arrayLibrary.forEach(array, function(element) {
-    if(predicate(element)) arrayCopy.push(element);
+    if(predicate(element)) newArray.push(element);
     });
-  return arrayCopy; 
+  return newArray; 
 }
 
 function reduce(array, initialValue, accumulationProcedure) {
@@ -34,6 +36,22 @@ function reduce(array, initialValue, accumulationProcedure) {
     accumulator = accumulationProcedure(accumulator, element);
     });
   return accumulator; 
+}
+
+function mapWithReduce(array, transform) {
+  var newArray = [];
+  return reduce(array, newArray, function(newArray, element) {
+    newArray.push(transform(element));
+    return newArray;
+  });
+}
+
+function filterWithReduce(array, predicate) {
+  var newArray = [];
+  return reduce(array, newArray, function(newArray, element) {
+    if(predicate(element)) newArray.push(element);
+    return newArray;
+  });
 }
 
 module.exports = arrayLibrary;

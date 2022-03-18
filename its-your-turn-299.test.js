@@ -1,4 +1,5 @@
 const functions = require('./its-your-turn-299');
+const arrayLibrary = require('./arrayLibrary');
 
 const customer001 = {firstName: 'Bob', lastName: 'Smith', address: '123 Main Street'};
 const customer002 = {firstName: 'Jane', lastName: 'Jones', address: '456 Main Street'};
@@ -17,5 +18,10 @@ test('create one address object from one customer object', () => {
 
 test('create array of address objects from array of customer objects', () => {
   expect(functions.map(customers, functions.createAddressFrom))
+  .toStrictEqual(addresses);
+});
+
+test('mapWithReduce: create array of address objects from array of customer objects', () => {
+  expect(arrayLibrary.mapWithReduce(customers, functions.createAddressFrom))
   .toStrictEqual(addresses);
 });

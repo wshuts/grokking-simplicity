@@ -1,4 +1,5 @@
 const functions = require('./its-your-turn-304');
+const filterWithReduce = require('./filterWithReduce');
 
 const customer000 = {id: 0};
 const customer001 = {id: 1};
@@ -19,3 +20,12 @@ test('filter customer list into not part of the test group', () => {
   .toStrictEqual(nonTestGroup);
 });
 
+test('filterWithReduce: customer list into a test group', () => {
+  expect(filterWithReduce.createTestGroup(customers))
+  .toStrictEqual(testGroup);
+});
+
+test('filterWithReduce: customer list into not part of the test group', () => {
+  expect(filterWithReduce.createNonTestGroup(customers))
+  .toStrictEqual(nonTestGroup);
+});
