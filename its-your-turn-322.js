@@ -6,9 +6,7 @@ const functions = {
 };
 
 function max(numbers) {
-  return arrayLibrary.reduce(numbers, Number.MIN_VALUE, function(currentMax, nextNumber) {
-    return currentMax > nextNumber ? currentMax : nextNumber;
-  });
+    return maxKey(numbers, Number.MIN_VALUE, x => x);
 }
 
 function maxKey(array, minElement, keySelector) {
