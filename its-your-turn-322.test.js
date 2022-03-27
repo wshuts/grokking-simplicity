@@ -12,3 +12,10 @@ test('find biggest purchase using maxKey', () => {
     .toStrictEqual(purchase03);
 });
 
+const numbers = [1, 2, 3, 4, 55, 6, 7, 8, 9, 10];
+
+test('find biggest number using max', () => {
+    expect(functions.max(numbers))
+    .toStrictEqual(55);
+});
+
