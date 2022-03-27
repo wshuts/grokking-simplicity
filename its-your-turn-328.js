@@ -10,7 +10,8 @@ function bigSpenders(customers) {
 }
 
 function hasLargePurchase(customer) {
-    var largestPurchase = arrayLibrary.maxKey(customer.purchases, {total: 0}, purchase => purchase.total);
+    var purchases = customer.purchases;
+    var largestPurchase = arrayLibrary.maxKey(purchases, {total: 0}, purchase => purchase.total);
     return largestPurchase.total > 100;
 }
 
