@@ -4,7 +4,8 @@ const arrayLibrary = {
   filter: filter,
   reduce: reduce,
   mapWithReduce: mapWithReduce,
-  filterWithReduce: filterWithReduce
+  filterWithReduce: filterWithReduce,
+  maxKey: maxKey
 };
 
 function forEach(array, procedure) {
@@ -51,6 +52,12 @@ function filterWithReduce(array, predicate) {
   return reduce(array, newArray, function(newArray, element) {
     if(predicate(element)) newArray.push(element);
     return newArray;
+  });
+}
+
+function maxKey(array, minElement, keySelector) {
+  return arrayLibrary.reduce(array, minElement, function(maxElement, element){
+      return keySelector(maxElement) > keySelector(element) ? maxElement : element;
   });
 }
 
