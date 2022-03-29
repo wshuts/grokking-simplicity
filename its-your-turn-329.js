@@ -5,7 +5,8 @@ const functions = {
 }
 
 function average(numbers) {
-    return 0;
+    var sum = arrayLibrary.reduce(numbers, 0, (sum, number) => sum + number);
+    return sum / numbers.length;
 }
 
 module.exports = functions;
