@@ -21,8 +21,8 @@ const customers = [customer01, customer02, customer03];
 
 const averagePurchaseTotals = [20, 110, 60];
 
-test('Compute the average purchase total for each customer', () => {
-    expect(functions.averagePurchaseTotals(customers))
+test("Compute each customer's average purchase total for all customers", () => {
+    expect(functions.allAveragePurchaseTotals(customers))
     .toStrictEqual(averagePurchaseTotals);
 });
 

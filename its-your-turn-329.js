@@ -2,7 +2,7 @@ const arrayLibrary = require('./arrayLibrary');
 
 const functions = {
     average: average,
-    averagePurchaseTotals: averagePurchaseTotals
+    allAveragePurchaseTotals: allAveragePurchaseTotals
 }
 
 function average(numbers) {
@@ -10,17 +10,17 @@ function average(numbers) {
     return sum / numbers.length;
 }
 
-function averagePurchaseTotals(customers) {
-    var purchases = arrayLibrary.map(customers, getPurchases);
-    return arrayLibrary.map(purchases, averageTotal);
+function allAveragePurchaseTotals(customers) {
+    return arrayLibrary.map(customers, averagePurchaseTotals);
 }
 
-function getPurchases(customer) {
-    return customer.purchases;
+function getTotal(purchase) {
+    return purchase.total;
 }
 
-function averageTotal(purchases) {
-    return arrayLibrary.reduce(purchases, 0, (sum, purchase) => sum + purchase.total) / purchases.length;
+function averagePurchaseTotals(customer) {
+    var purchaseTotals = arrayLibrary.map(customer.purchases, getTotal);
+    return average(purchaseTotals);
 }
 
 module.exports = functions;
