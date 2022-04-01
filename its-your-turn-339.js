@@ -5,14 +5,16 @@ const functions = {
 }
 
 function shoesAndSocksInventory(products) {
-    var inventory = 0;
-    for (var p = 0; p < products.length; p++) {
-        var product = products[p];
-        if (product.type === 'shoes' || product.type === 'socks') {
-            inventory += product.numberInInventory;
-        }
-    }
-    return inventory;
+    var shoesAndSocks = arrayLibrary.filter(products, isShoesOrSocks);
+    return arrayLibrary.reduce(shoesAndSocks, 0, addProductCountToRunningTotal);
+}
+
+function isShoesOrSocks(product) {
+    return product.type === 'shoes' || product.type === 'socks';
+}
+
+function addProductCountToRunningTotal(runningTotal, product) {
+    return runningTotal + product.numberInInventory;
 }
 
 module.exports = functions;
