@@ -5,19 +5,12 @@ const functions = {
 }
 
 function buildRoster(evaluations) {
-    return arrayLibrary.reduce(evaluations, [], (roster, evaluation) => []);
+    return arrayLibrary.reduce(evaluations, {}, addPlayers);
 }
 
-function filterByPosition(evaluations, position) {
-    return arrayLibrary.filter(evaluations, evaluation => evaluation.position === position);
-}
-
-function getBest(evaluations) {
-    return arrayLibrary.reduce(evaluations, {name: 'open', position: 'n/a', score: 0}, compareByScore);
-}
-
-function compareByScore(bestEvaluation, evaluation) {
-    return evaluation.score > bestEvaluation.score ? evaluation : bestEvaluation;
+function addPlayers(roster, evaluation) {
+    if(!roster[evaluation.position]) roster[evaluation.position] = evaluation.name;
+    return roster;
 }
 
 module.exports = functions;
