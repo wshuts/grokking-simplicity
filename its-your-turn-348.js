@@ -1,4 +1,5 @@
 const arrayLibrary = require('./arrayLibrary');
+const objectLibrary = require('./objectLibrary');
 
 const functions = {
     buildRoster: buildRoster
@@ -9,8 +10,11 @@ function buildRoster(evaluations) {
 }
 
 function addPlayers(roster, evaluation) {
-    if(!roster[evaluation.position]) roster[evaluation.position] = evaluation.name;
-    return roster;
+    var position = evaluation.position;
+    var name = evaluation.name;
+    if(roster[position])
+        return roster;
+    return objectLibrary.objectSet(roster, position, name);
 }
 
 module.exports = functions;
