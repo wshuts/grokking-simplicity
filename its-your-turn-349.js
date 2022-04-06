@@ -1,4 +1,5 @@
 const arrayLibrary = require('./arrayLibrary');
+const objectLibrary = require('./objectLibrary');
 const professionalCoach = require('./professionalCoach');
 
 const functions = {
@@ -19,11 +20,7 @@ function buildEvaluations(recommendations) {
     return arrayLibrary.map(recommendations, recommendation => {
         var name = recommendation.name;
         var position = recommendation.position;
-        return {
-            name: name,
-            position: position,
-            score: professionalCoach.scorePlayer(name, position)
-        };
+        return objectLibrary.objectSet(recommendation, 'score', professionalCoach.scorePlayer(name, position));
     });
 }
 
