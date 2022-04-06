@@ -1,7 +1,8 @@
 const arrayLibrary = require('./arrayLibrary');
 
 const professionalCoach = {
-    recommendPosition: recommendPosition
+    recommendPosition: recommendPosition,
+    scorePlayer: scorePlayer
 }
 
 const recommendations = [
