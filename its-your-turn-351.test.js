@@ -1,18 +1,18 @@
 const functions = require('./its-your-turn-351.js');
 
 const employeeNames = [
+    'Raoul',
+    'Luigi',
+    'Quinn',
     'Drusilla',
     'Micah',
     'Charlie',
     'Marco',
     'Paula',
-    'Raoul',
-    'Luigi',
     'Daniela',
     'Rupert',
     'Monica',
-    'Bernie',
-    'Quinn'
+    'Bernie'
 ];
 
 const roster = {
@@ -28,6 +28,6 @@ const roster = {
 };
 
 test("employeeNames to roster", () => {
-    expect(functions.buildRoster(employeeNames))
+    expect(functions.buildCompanyRoster(employeeNames))
     .toStrictEqual(roster);
 });
