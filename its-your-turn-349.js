@@ -16,7 +16,15 @@ function buildRecommendations(employeeNames) {
 }
 
 function buildEvaluations(recommendations) {
-    return [];
+    return arrayLibrary.map(recommendations, recommendation => {
+        var name = recommendation.name;
+        var position = recommendation.position;
+        return {
+            name: name,
+            position: position,
+            score: professionalCoach.scorePlayer(name, position)
+        };
+    });
 }
 
 module.exports = functions;
