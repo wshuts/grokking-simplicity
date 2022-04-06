@@ -2,7 +2,8 @@ const arrayLibrary = require('./arrayLibrary');
 const professionalCoach = require('./professionalCoach');
 
 const functions = {
-    buildRecommendations: buildRecommendations
+    buildRecommendations: buildRecommendations,
+    buildEvaluations: buildEvaluations
 }
 
 function buildRecommendations(employeeNames) {
@@ -12,6 +13,10 @@ function buildRecommendations(employeeNames) {
             position: professionalCoach.recommendPosition(employeeName)
         };
     });
+}
+
+function buildEvaluations(recommendations) {
+    return [];
 }
 
 module.exports = functions;
