@@ -3,7 +3,8 @@ const objectLibrary = require('./objectLibrary');
 
 
 const functions = {
-    modifyEmailToLowercase: modifyEmailToLowercase
+    modifyEmailToLowercase: modifyEmailToLowercase,
+    tenXQuantity: tenXQuantity
 }
 
 function modifyEmailToLowercase(user) {
@@ -12,6 +13,14 @@ function modifyEmailToLowercase(user) {
 
 function lowercase(email) {
     return lodash.toLower(email);
+}
+
+function tenXQuantity(item) {
+    return update(item, 'quantity', tenX);
+}
+
+function tenX(quantity) {
+    return quantity * 10;
 }
 
 function update(object, key, modifier) {
