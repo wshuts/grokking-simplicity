@@ -3,7 +3,14 @@ const objectLibrary = require('./objectLibrary');
 const functions = {
     update: update,
     update2: update2,
-    update3: update3
+    update3: update3,
+    update4: update4
+}
+
+function update4(object, key1, key2, key3, key4, modifier) {
+    return update(object, key1, function(value) {
+        return update3(value, key2, key3, key4, modifier);
+    });
 }
 
 function update3(object, key1, key2, key3, modifier) {
