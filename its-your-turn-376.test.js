@@ -80,3 +80,32 @@ test("update with four levels of nesting", () => {
     expect(functions.update4(nestedData4, 'levelOneKey', 'levelTwoKey', 'levelThreeKey', 'levelFourKey', modifier))
     .toStrictEqual(nestedDataWithUpdates4);
 });
+
+const nestedData5 = {
+    levelOneKey: {
+        levelTwoKey: {
+            levelThreeKey: {
+                levelFourKey: {
+                    levelFiveKey: "levelFiveValue"
+                }
+            }
+        }
+    }
+};
+
+const nestedDataWithUpdates5 = {
+    levelOneKey: {
+        levelTwoKey: {
+            levelThreeKey: {
+                levelFourKey: {
+                    levelFiveKey: "modifiedLevelFiveValue"
+                }
+            }
+        }
+    }
+};
+
+test("update with five levels of nesting", () => {
+    expect(functions.update5(nestedData5, 'levelOneKey', 'levelTwoKey', 'levelThreeKey', 'levelFourKey', 'levelFiveKey', modifier))
+    .toStrictEqual(nestedDataWithUpdates5);
+});
