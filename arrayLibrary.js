@@ -5,7 +5,8 @@ const arrayLibrary = {
   reduce: reduce,
   mapWithReduce: mapWithReduce,
   filterWithReduce: filterWithReduce,
-  maxKey: maxKey
+  maxKey: maxKey,
+  drop_first: drop_first
 };
 
 function forEach(array, procedure) {
@@ -59,6 +60,18 @@ function maxKey(array, minElement, keySelector) {
   return arrayLibrary.reduce(array, minElement, function(maxElement, element){
       return keySelector(maxElement) > keySelector(element) ? maxElement : element;
   });
+}
+
+function drop_first(array) {
+  return withArrayCopy(array, function(copy) {
+    copy.shift();
+  })
+}
+
+function withArrayCopy(array, modifier) {
+  copy = array.slice();
+  modifier(copy);
+  return copy;
 }
 
 module.exports = arrayLibrary;
